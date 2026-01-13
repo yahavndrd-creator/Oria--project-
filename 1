@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אוריה אלחרר – טיפולים רגשיים</title>
+
+<style>
+:root {
+    --bg: #f7f6f3;
+    --card: #ffffff;
+    --text: #2f2f2f;
+    --accent: #b8c4b1;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: var(--card);
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 10;
+}
+
+.menu-btn {
+    font-size: 26px;
+    cursor: pointer;
+}
+
+nav {
+    display: none;
+    background: var(--card);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+nav a {
+    display: block;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--text);
+    border-top: 1px solid #f0f0f0;
+}
+
+nav a:hover {
+    background: var(--bg);
+}
+
+.page {
+    display: none;
+    max-width: 900px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.page.active {
+    display: block;
+}
+
+.card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+h1, h2 {
+    font-weight: normal;
+    margin-top: 0;
+}
+
+img {
+    width: 100%;
+    border-radius: 14px;
+    margin: 20px 0;
+}
+
+/* מחשב */
+@media (min-width: 768px) {
+    .page {
+        padding: 50px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+</header>
+
+<nav id="menu">
+    <a onclick="showPage('home')">פתיחה</a>
+    <a onclick="showPage('about')">קצת עליי</a>
+    <a onclick="showPage('process')">התהליך</a>
+    <a onclick="showPage('tools')">הכלים</a>
+    <a onclick="showPage('offers')">מה אני מציעה</a>
+    <a onclick="showPage('contact')">יצירת קשר</a>
+</nav>
+
+<!-- פתיחה -->
+<div id="home" class="page active">
+    <div class="card">
+        <h1>טיפולים רגשיים ותהליכי עומק</h1>
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773" alt="">
+        <p>
+            אם יש בך תחושה שמשהו תקוע,  
+            או שהגיע הזמן לעצור ולהקשיב פנימה –  
+            אני מזמינה אותך לתהליך רגוע, עמוק ומדויק.
+        </p>
+    </div>
+</div>
+
+<!-- עליי -->
+<div id="about" class="page">
+    <div class="card">
+        <h2>קצת עליי</h2>
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="">
+        <p>
+            נעים מאוד, אני אוריה אלחרר, גרה בחריש.  
+            אני מלווה אנשים בתהליכים רגשיים עמוקים,  
+            מתוך הקשבה, רגישות ודיוק.
+        </p>
+    </div>
+</div>
+
+<!-- תהליך -->
+<div id="process" class="page">
+    <div class="card">
+        <h2>איך נראה התהליך?</h2>
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="">
+        <p>
+            זהו תהליך שמאפשר לעצור, לפגוש רגשות ודפוסים  
+            ולעבוד בעדינות עם מה שעולה,  
+            כדי ליצור שינוי שמחזיק לאורך זמן.
+        </p>
+    </div>
+</div>
+
+<!-- כלים -->
+<div id="tools" class="page">
+    <div class="card">
+        <h2>הכלים שאני עובדת איתם</h2>
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="">
+        <p>NLP – עבודה עם התת־מודע</p>
+        <p>שיטת סאטיה – חיבור גוף ורגש</p>
+        <p>Human Design – מפה אישית והכוונה</p>
+        <p>קלפי טארוט – התבוננות פנימית</p>
+    </div>
+</div>
+
+<!-- הצעות -->
+<div id="offers" class="page">
+    <div class="card">
+        <h2>מה אני מציעה</h2>
+        <p><strong>אבחון והכוונה</strong> – 2–4 מפגשים</p>
+        <p><strong>תהליך טיפולי עמוק</strong> – 8–15 מפגשים</p>
+    </div>
+</div>
+
+<!-- קשר -->
+<div id="contact" class="page">
+    <div class="card">
+        <h2>יצירת קשר</h2>
+        <p>קליניקה בחריש</p>
+        <p>טלפון / וואטסאפ</p>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(pageId).classList.add("active");
+    document.getElementById("menu").style.display = "none";
+}
+</script>
+
+</body>
+</html>
